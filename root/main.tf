@@ -6,3 +6,8 @@ module "vpc" {
   PUBLIC_SUBNETS  = var.PUBLIC_SUBNETS
   PRIVATE_SUBNETS = var.PRIVATE_SUBNETS
 }
+
+module "iam" {
+  source       = "../modules/iam"
+  cluster_name = module.vpc.cluster_name
+}
